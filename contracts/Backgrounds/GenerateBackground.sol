@@ -1,32 +1,35 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Bg0.sol";
-import "./Bg1.sol";
-import "./Bg2.sol";
-import "./Bg3.sol";
-import "./Bg4.sol";
-import "./Bg5.sol";
-import "./Bg6.sol";
+import "../interfaces/LayerBackgroundInterface.sol";
+
 
 contract GenerateBackground {
 
-    Bg0 immutable bg0;
-    Bg1 immutable bg1;
-    Bg2 immutable bg2;
-    Bg3 immutable bg3;
-    Bg4 immutable bg4;
-    Bg5 immutable bg5;
-    Bg6 immutable bg6;
+    LayerBackgroundInterface immutable bg0;
+    LayerBackgroundInterface immutable bg1;
+    LayerBackgroundInterface immutable bg2;
+    LayerBackgroundInterface immutable bg3;
+    LayerBackgroundInterface immutable bg4;
+    LayerBackgroundInterface immutable bg5;
+    LayerBackgroundInterface immutable bg6;
 
-    constructor() {
-        bg0 = new Bg0();
-        bg1 = new Bg1();
-        bg2 = new Bg2();
-        bg3 = new Bg3();
-        bg4 = new Bg4();
-        bg5 = new Bg5();
-        bg6 = new Bg6();
+    constructor(
+        LayerBackgroundInterface _bg0,
+        LayerBackgroundInterface _bg1,
+        LayerBackgroundInterface _bg2,
+        LayerBackgroundInterface _bg3,
+        LayerBackgroundInterface _bg4,
+        LayerBackgroundInterface _bg5,
+        LayerBackgroundInterface _bg6
+    ) {
+        bg0 = _bg0;
+        bg1 = _bg1;
+        bg2 = _bg2;
+        bg3 = _bg3;
+        bg4 = _bg4;
+        bg5 = _bg5;
+        bg6 = _bg6;
     }
 
 

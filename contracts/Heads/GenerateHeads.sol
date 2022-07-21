@@ -1,53 +1,55 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Head0.sol";
-import "./Head1.sol";
-import "./Head2.sol";
-import "./Head3.sol";
-import "./Head4.sol";
-import "./Head5.sol";
-import "./Head6.sol";
-import "./Head7.sol";
-import "./Head8.sol";
-import "./Head9.sol";
-import "./Head10.sol";
-import "./Head11.sol";
-import "./Head12.sol";
+import "../interfaces/LayerHeadInterface.sol";
 
 
 contract GenerateHead {
 
 
-    Head0 immutable head0; 
-    Head1 immutable head1;
-    Head2 immutable head2;
-    Head3 immutable head3;
-    Head4 immutable head4;
-    Head5 immutable head5;
-    Head6 immutable head6;
-    Head7 immutable head7;
-    Head8 immutable head8;
-    Head9 immutable head9;
-    Head10 immutable head10;
-    Head11 immutable head11;
-    Head12 immutable head12;
+    LayerHeadInterface immutable head0; 
+    LayerHeadInterface immutable head1;
+    LayerHeadInterface immutable head2;
+    LayerHeadInterface immutable head3;
+    LayerHeadInterface immutable head4;
+    LayerHeadInterface immutable head5;
+    LayerHeadInterface immutable head6;
+    LayerHeadInterface immutable head7;
+    LayerHeadInterface immutable head8;
+    LayerHeadInterface immutable head9;
+    LayerHeadInterface immutable head10;
+    LayerHeadInterface immutable head11;
+    LayerHeadInterface immutable head12;
 
 
-    constructor() {
-        head0 = new Head0();
-        head1 = new Head1();
-        head2 = new Head2();
-        head3 = new Head3();
-        head4 = new Head4();
-        head5 = new Head5();
-        head6 = new Head6();
-        head7 = new Head7();
-        head8 = new Head8();
-        head9 = new Head9();
-        head10 = new Head10();
-        head11 = new Head11();
-        head12 = new Head12();
+    constructor(
+        LayerHeadInterface _head0,
+        LayerHeadInterface _head1,
+        LayerHeadInterface _head2,
+        LayerHeadInterface _head3,
+        LayerHeadInterface _head4,
+        LayerHeadInterface _head5,
+        LayerHeadInterface _head6,
+        LayerHeadInterface _head7,
+        LayerHeadInterface _head8,
+        LayerHeadInterface _head9,
+        LayerHeadInterface _head10,
+        LayerHeadInterface _head11,
+        LayerHeadInterface _head12
+    ) {
+        head0 = _head0;
+        head1 = _head1;
+        head2 = _head2;
+        head3 = _head3;
+        head4 = _head4;
+        head5 = _head5;
+        head6 = _head6;
+        head7 = _head7;
+        head8 = _head8;
+        head9 = _head9;
+        head10 = _head10;
+        head11 = _head11;
+        head12 = _head12;
     }
 
     function generateHead(uint256 number) public view returns(string memory) {

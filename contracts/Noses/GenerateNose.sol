@@ -1,32 +1,35 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Nose0.sol";
-import "./Nose1.sol";
-import "./Nose2.sol";
-import "./Nose3.sol";
-import "./Nose4.sol";
-import "./Nose5.sol";
-import "./Nose6.sol";
+import "../interfaces/LayerNoseInterface.sol";
+
 
 contract GenerateNose {
 
-    Nose0 immutable nose0;
-    Nose1 immutable nose1;
-    Nose2 immutable nose2;
-    Nose3 immutable nose3;
-    Nose4 immutable nose4;
-    Nose5 immutable nose5;
-    Nose6 immutable nose6;
+    LayerNoseInterface immutable nose0;
+    LayerNoseInterface immutable nose1;
+    LayerNoseInterface immutable nose2;
+    LayerNoseInterface immutable nose3;
+    LayerNoseInterface immutable nose4;
+    LayerNoseInterface immutable nose5;
+    LayerNoseInterface immutable nose6;
 
-    constructor() {
-        nose0 = new Nose0();
-        nose1 = new Nose1();
-        nose2 = new Nose2();
-        nose3 = new Nose3();
-        nose4 = new Nose4();
-        nose5 = new Nose5();
-        nose6 = new Nose6();
+    constructor(
+        LayerNoseInterface _nose0,
+        LayerNoseInterface _nose1,
+        LayerNoseInterface _nose2,
+        LayerNoseInterface _nose3,
+        LayerNoseInterface _nose4,
+        LayerNoseInterface _nose5,
+        LayerNoseInterface _nose6
+    ) {
+        nose0 = _nose0;
+        nose1 = _nose1;
+        nose2 = _nose2;
+        nose3 = _nose3;
+        nose4 = _nose4;
+        nose5 = _nose5;
+        nose6 = _nose6;
     }
 
 

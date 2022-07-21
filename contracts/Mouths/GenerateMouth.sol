@@ -1,47 +1,50 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Mouth0.sol";
-import "./Mouth1.sol";
-import "./Mouth2.sol";
-import "./Mouth3.sol";
-import "./Mouth4.sol";
-import "./Mouth5.sol";
-import "./Mouth6.sol";
-import "./Mouth7.sol";
-import "./Mouth8.sol";
-import "./Mouth9.sol";
-import "./Mouth10.sol";
-import "./Mouth11.sol";
+import "../interfaces/LayerMouthInterface.sol";
+
 
 contract GenerateMouth {
 
-    Mouth0 immutable mouth0;
-    Mouth1 immutable mouth1;
-    Mouth2 immutable mouth2;
-    Mouth3 immutable mouth3;
-    Mouth4 immutable mouth4;
-    Mouth5 immutable mouth5;
-    Mouth6 immutable mouth6;
-    Mouth7 immutable mouth7;
-    Mouth8 immutable mouth8;
-    Mouth9 immutable mouth9;
-    Mouth10 immutable mouth10;
-    Mouth11 immutable mouth11;
+    LayerMouthInterface immutable mouth0;
+    LayerMouthInterface immutable mouth1;
+    LayerMouthInterface immutable mouth2;
+    LayerMouthInterface immutable mouth3;
+    LayerMouthInterface immutable mouth4;
+    LayerMouthInterface immutable mouth5;
+    LayerMouthInterface immutable mouth6;
+    LayerMouthInterface immutable mouth7;
+    LayerMouthInterface immutable mouth8;
+    LayerMouthInterface immutable mouth9;
+    LayerMouthInterface immutable mouth10;
+    LayerMouthInterface immutable mouth11;
 
-    constructor() {
-        mouth0 = new Mouth0();
-        mouth1 = new Mouth1();
-        mouth2 = new Mouth2();
-        mouth3 = new Mouth3();
-        mouth4 = new Mouth4();
-        mouth5 = new Mouth5();
-        mouth6 = new Mouth6();
-        mouth7 = new Mouth7();
-        mouth8 = new Mouth8();
-        mouth9 = new Mouth9();
-        mouth10 = new Mouth10();
-        mouth11 = new Mouth11();
+    constructor(
+        LayerMouthInterface _mouth0,
+        LayerMouthInterface _mouth1,
+        LayerMouthInterface _mouth2,
+        LayerMouthInterface _mouth3,
+        LayerMouthInterface _mouth4,
+        LayerMouthInterface _mouth5,
+        LayerMouthInterface _mouth6,
+        LayerMouthInterface _mouth7,
+        LayerMouthInterface _mouth8,
+        LayerMouthInterface _mouth9,
+        LayerMouthInterface _mouth10,
+        LayerMouthInterface _mouth11
+    ) {
+        mouth0 = _mouth0;
+        mouth1 = _mouth1;
+        mouth2 = _mouth2;
+        mouth3 = _mouth3;
+        mouth4 = _mouth4;
+        mouth5 = _mouth5;
+        mouth6 = _mouth6;
+        mouth7 = _mouth7;
+        mouth8 = _mouth8;
+        mouth9 = _mouth9;
+        mouth10 = _mouth10;
+        mouth11 = _mouth11;
     }
 
 

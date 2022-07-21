@@ -1,38 +1,40 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "./Face0.sol";
-import "./Face1.sol";
-import "./Face2.sol";
-import "./Face3.sol";
-import "./Face4.sol";
-import "./Face5.sol";
-import "./Face6.sol";
-import "./Face7.sol";
+import "../interfaces/LayerFaceInterface.sol";
 
 
 contract GenerateFace {
 
 
-    Face0 immutable face0; 
-    Face1 immutable face1;
-    Face2 immutable face2;
-    Face3 immutable face3;
-    Face4 immutable face4;
-    Face5 immutable face5;
-    Face6 immutable face6;
-    Face7 immutable face7;
+    LayerFaceInterface immutable face0; 
+    LayerFaceInterface immutable face1;
+    LayerFaceInterface immutable face2;
+    LayerFaceInterface immutable face3;
+    LayerFaceInterface immutable face4;
+    LayerFaceInterface immutable face5;
+    LayerFaceInterface immutable face6;
+    LayerFaceInterface immutable face7;
 
 
-    constructor() {
-        face0 = new Face0();
-        face1 = new Face1();
-        face2 = new Face2();
-        face3 = new Face3();
-        face4 = new Face4();
-        face5 = new Face5();
-        face6 = new Face6();
-        face7 = new Face7();
+    constructor(
+        LayerFaceInterface _face0, 
+        LayerFaceInterface _face1,
+        LayerFaceInterface _face2,
+        LayerFaceInterface _face3,
+        LayerFaceInterface _face4,
+        LayerFaceInterface _face5,
+        LayerFaceInterface _face6,
+        LayerFaceInterface _face7
+    ) {
+        face0 = _face0;
+        face1 = _face1;
+        face2 = _face2;
+        face3 = _face3;
+        face4 = _face4;
+        face5 = _face5;
+        face6 = _face6;
+        face7 = _face7;
     }
 
     function generateFace(uint256 number) public view returns(string memory) {
