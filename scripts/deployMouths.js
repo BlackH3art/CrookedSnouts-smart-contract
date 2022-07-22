@@ -59,7 +59,7 @@ const main = async () => {
     mouth1: mouth1.address,
     mouth2: mouth2.address,
     mouth3: mouth3.address,
-    Mouth4: mouth4.address,
+    mouth4: mouth4.address,
     mouth5: mouth5.address,
     mouth6: mouth6.address,
     mouth7: mouth7.address,
