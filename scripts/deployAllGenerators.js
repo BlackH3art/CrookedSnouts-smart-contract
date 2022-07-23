@@ -51,7 +51,7 @@ const main = async () => {
   );
 
   console.log("****** Deploy NOSE ******");
-  const generateNose = await GenerateNose.deplot(
+  const generateNose = await GenerateNose.deploy(
     ...noseAddresses
   );
 
