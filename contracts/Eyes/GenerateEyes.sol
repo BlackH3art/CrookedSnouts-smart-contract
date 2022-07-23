@@ -18,7 +18,7 @@ contract GenerateEyes {
     LayerEyesInterface immutable eyes8;
     LayerEyesInterface immutable eyes9;
     LayerEyesInterface immutable eyes10;
-    LayerEyesInterface immutable eyes11;
+    // LayerEyesInterface immutable eyes11;
 
 
     constructor(
@@ -32,8 +32,8 @@ contract GenerateEyes {
         LayerEyesInterface _eyes7,
         LayerEyesInterface _eyes8,
         LayerEyesInterface _eyes9,
-        LayerEyesInterface _eyes10,
-        LayerEyesInterface _eyes11
+        LayerEyesInterface _eyes10
+        // LayerEyesInterface _eyes11
     ) {
         eyes0 = _eyes0; 
         eyes1 = _eyes1;
@@ -46,7 +46,7 @@ contract GenerateEyes {
         eyes8 = _eyes8;
         eyes9 = _eyes9;
         eyes10 = _eyes10;
-        eyes11 = _eyes11;
+        // eyes11 = _eyes11;
     }
 
     function generateEyes(uint256 number) public view returns(string memory) {
@@ -95,9 +95,9 @@ contract GenerateEyes {
             return eyes10.getEyes();
         }
 
-        if(number == 12) {
-            return eyes11.getEyes();
-        }
+        // if(number == 12) {
+        //     return eyes11.getEyes();
+        // }
 
         revert("Wrong eyes generation");
     }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../interfaces/LayerMouthInterface.sol";
+import "../Interfaces/LayerMouthInterface.sol";
 
 
 contract GenerateMouth {
@@ -17,7 +17,7 @@ contract GenerateMouth {
     LayerMouthInterface immutable mouth8;
     LayerMouthInterface immutable mouth9;
     LayerMouthInterface immutable mouth10;
-    LayerMouthInterface immutable mouth11;
+    // LayerMouthInterface immutable mouth11;
 
     constructor(
         LayerMouthInterface _mouth0,
@@ -30,8 +30,8 @@ contract GenerateMouth {
         LayerMouthInterface _mouth7,
         LayerMouthInterface _mouth8,
         LayerMouthInterface _mouth9,
-        LayerMouthInterface _mouth10,
-        LayerMouthInterface _mouth11
+        LayerMouthInterface _mouth10
+        // LayerMouthInterface _mouth11
     ) {
         mouth0 = _mouth0;
         mouth1 = _mouth1;
@@ -44,7 +44,7 @@ contract GenerateMouth {
         mouth8 = _mouth8;
         mouth9 = _mouth9;
         mouth10 = _mouth10;
-        mouth11 = _mouth11;
+        // mouth11 = _mouth11;
     }
 
 
@@ -94,9 +94,9 @@ contract GenerateMouth {
             return mouth10.getMouth();
         }
 
-         if(number == 12) {
-            return mouth11.getMouth();
-        }
+        //  if(number == 12) {
+        //     return mouth11.getMouth();
+        // }
 
         revert("Wrong mouth generation");
     }

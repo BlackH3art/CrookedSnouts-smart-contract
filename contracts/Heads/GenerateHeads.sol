@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../interfaces/LayerHeadInterface.sol";
+import "../Interfaces/LayerHeadInterface.sol";
 
 
 contract GenerateHead {
@@ -18,8 +18,8 @@ contract GenerateHead {
     LayerHeadInterface immutable head8;
     LayerHeadInterface immutable head9;
     LayerHeadInterface immutable head10;
-    LayerHeadInterface immutable head11;
-    LayerHeadInterface immutable head12;
+    // LayerHeadInterface immutable head11;
+    // LayerHeadInterface immutable head12;
 
 
     constructor(
@@ -33,9 +33,9 @@ contract GenerateHead {
         LayerHeadInterface _head7,
         LayerHeadInterface _head8,
         LayerHeadInterface _head9,
-        LayerHeadInterface _head10,
-        LayerHeadInterface _head11,
-        LayerHeadInterface _head12
+        LayerHeadInterface _head10
+        // LayerHeadInterface _head11
+        // LayerHeadInterface _head12
     ) {
         head0 = _head0;
         head1 = _head1;
@@ -48,8 +48,8 @@ contract GenerateHead {
         head8 = _head8;
         head9 = _head9;
         head10 = _head10;
-        head11 = _head11;
-        head12 = _head12;
+        // head11 = _head11;
+        // head12 = _head12;
     }
 
     function generateHead(uint256 number) public view returns(string memory) {
@@ -98,13 +98,13 @@ contract GenerateHead {
             return head10.getHead();
         }
 
-        if(number == 12) {
-            return head11.getHead();
-        }
+        // if(number == 12) {
+        //     return head11.getHead();
+        // }
         
-        if(number == 13) {
-            return head12.getHead();
-        }
+        // if(number == 13) {
+        //     return head12.getHead();
+        // }
 
         revert("Wrong head generation");
     }
