@@ -27,11 +27,8 @@ module.exports = {
         version: "0.8.0"
       },
       {
-        version: "0.8.1"
+        version: "0.8.4"
       },
-      {
-        version: "0.6.12"
-      }
     ]
   },
   defaultNetwork: "hardhat",

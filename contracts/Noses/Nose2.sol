@@ -6,7 +6,7 @@ contract Nose2 {
     function getNose() public pure returns (string memory) {
         return string(
             abi.encodePacked(
-                '<g id="nose"><path d="M196.801,202.303L188.262,231.172" style="fill:none;stroke:black;stroke-width:2.76px;"/><circle cx="184.196" cy="245.403" r="2.033" style="stroke:black;stroke-width:2.76px;"/><g transform="matrix(1,0,0,1,15.1783,-1.36434)"><circle cx="184.196" cy="245.403" r="2.033" style="stroke:black;stroke-width:2.76px;"/></g><path d="M194.768,232.798C203.05,231.891 210.98,236.773 211.671,244.541" style="fill:none;stroke:black;stroke-width:2.76px;"/><path d="M182.57,235.238C176.05,234.06 170.814,239.07 171.885,246.567" style="fill:none;stroke:black;stroke-width:2.76px;"/></g>'
+                '<path d="M196.801 202.303l-8.539 28.869" fill="none"/><circle cx="184.196" cy="245.403" r="2.033"/><circle cx="199.374" cy="244.039" r="2.033"/><path d="M194.768 232.798c8.282-.907 16.212 3.975 16.903 11.743m-29.101-9.303c-6.52-1.178-11.756 3.832-10.685 11.329" fill="none"/>'
             )
         );
     }

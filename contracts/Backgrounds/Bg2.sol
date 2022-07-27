@@ -6,7 +6,7 @@ contract Bg2 {
     function getBackground() public pure returns(string memory) {
         return string(
             abi.encodePacked(
-                '<rect x="-13.723" y="-9.657" width="421.855" height="416.399" style="fill:rgb(121,106,230);"/>'
+                '<path d="M-13.723-9.657h421.855v416.399H-13.723z" fill="#796ae6"/>'
             )
         );
     }

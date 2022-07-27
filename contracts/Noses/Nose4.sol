@@ -6,7 +6,7 @@ contract Nose4 {
     function getNose() public pure returns (string memory) {
         return string(
             abi.encodePacked(
-                '<path d="M203.288,196.905L222.545,217.983C222.545,217.983 228.053,249.471 224.627,254.675C221.201,259.88 201.987,249.21 201.987,249.21" style="fill:none;stroke:black;stroke-width:4.07px;"/>'
+                '<path d="M203.288 196.905l19.257 21.078s5.508 31.488 2.082 36.692-22.64-5.465-22.64-5.465" fill="none" stroke="#000" stroke-width="4.07"/>'
             )
         );
     }

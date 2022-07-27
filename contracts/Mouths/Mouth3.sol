@@ -6,7 +6,7 @@ contract Mouth3 {
     function getMouth() public pure returns (string memory) {
         return string(
             abi.encodePacked(
-                '<g id="teeths"><path d="M132.329,271.269C186.699,281.367 233.055,282.857 268.689,272.831" style="fill:none;stroke:black;stroke-width:2.5px;"/><g id="teeth2"><g transform="matrix(1,0,0,1,-0.260228,1.30114)"><path d="M220.026,279.336C220.026,279.336 219.159,293.302 221.067,296.251C222.957,299.172 229.915,300.024 231.476,297.032C233.038,294.039 230.435,278.295 230.435,278.295L220.026,279.336" style="fill:white;stroke:black;stroke-width:2.5px;"/></g><path d="M226.173,295.045L226.706,299.415" style="fill:none;stroke:black;stroke-width:0.87px;"/></g><g id="teeth1"><g transform="matrix(1,0,0,1,-0.260228,0.520456)"><path d="M196.866,279.076C196.866,279.076 195.264,293.793 197.126,297.292C199.512,301.774 209.097,302.568 211.179,298.073C212.725,294.732 209.617,279.076 209.617,279.076L196.866,279.076" style="fill:white;stroke:black;stroke-width:2.5px;"/></g><path d="M203.632,296.511L203.82,300.794" style="fill:none;stroke:black;stroke-width:0.87px;"/></g></g>'
+                '<g stroke-width="2.5"><path d="M132.329 271.269c54.37 10.098 100.726 11.588 136.36 1.562" fill="none"/><path d="M219.766 280.637s-.867 13.966 1.041 16.915c1.89 2.921 8.848 3.773 10.409.781s-1.041-18.737-1.041-18.737l-10.409 1.041" fill="#fff"/></g><path d="M226.173 295.045l.533 4.37" fill="none" stroke-width=".87"/><path d="M196.606 279.596s-1.602 14.717.26 18.216c2.386 4.482 11.971 5.276 14.053.781 1.546-3.341-1.562-18.997-1.562-18.997h-12.751" fill="#fff" stroke-width="2.5"/><path d="M203.632 296.511l.188 4.283" fill="none" stroke-width=".87"/>'
             )
         );
     }

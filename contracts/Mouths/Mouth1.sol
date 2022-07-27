@@ -6,7 +6,7 @@ contract Mouth1 {
     function getMouth() public pure returns (string memory) {
         return string(
             abi.encodePacked(
-                '<path d="M120.445,270.241C181.21,278.977 234.182,282.258 278.005,279.135" style="fill:none;stroke:black;stroke-width:4.1px;"/>'
+                '<path d="M120.445 270.241c60.765 8.736 113.737 12.017 157.56 8.894" fill="none" stroke="#000" stroke-width="4.1"/>'
             )
         );
     }
