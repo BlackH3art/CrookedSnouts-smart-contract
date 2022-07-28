@@ -69,6 +69,8 @@ const deployBackgrounds = async () => {
   }
 }
 
+deployBackgrounds();
+
 
 module.exports = {
   deployBackgrounds,

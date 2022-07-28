@@ -73,6 +73,8 @@ const deployFaces = async () => {
   }
 }
 
+deployFaces();
+
 module.exports = {
   deployFaces,
 }

@@ -93,6 +93,8 @@ const deployHeads = async () => {
   }
 }
 
+deployHeads();
+
 module.exports = {
   deployHeads,
 }

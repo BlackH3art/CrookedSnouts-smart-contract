@@ -89,6 +89,8 @@ const deployEyes = async () => {
   }
 }
 
+deployEyes();
+
 module.exports = {
   deployEyes,
 }

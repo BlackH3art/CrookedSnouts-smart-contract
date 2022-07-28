@@ -69,6 +69,8 @@ const deployNoses = async () => {
   }
 }
 
+deployNoses();
+
 module.exports = {
   deployNoses,
 }

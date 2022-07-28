@@ -70,8 +70,8 @@ const main = async () => {
 
   const generateAddresses = {
     generateBackground: generateBackground.address,
-    generateEyes: generateEyes.address,
     generateFace: generateFace.address,
+    generateEyes: generateEyes.address,
     generateHead: generateHead.address,
     generateMouth: generateMouth.address,
     generateNose: generateNose.address

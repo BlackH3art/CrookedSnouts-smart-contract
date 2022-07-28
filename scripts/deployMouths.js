@@ -89,6 +89,8 @@ const deployMouths = async () => {
   }
 }
 
+deployMouths();
+
 module.exports = {
   deployMouths,
 }
