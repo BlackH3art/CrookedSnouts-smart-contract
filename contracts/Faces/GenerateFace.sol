@@ -15,6 +15,7 @@ contract GenerateFace {
     LayerFaceInterface immutable face5;
     LayerFaceInterface immutable face6;
     LayerFaceInterface immutable face7;
+    LayerFaceInterface immutable face8;
 
 
     constructor(
@@ -25,7 +26,8 @@ contract GenerateFace {
         LayerFaceInterface _face4,
         LayerFaceInterface _face5,
         LayerFaceInterface _face6,
-        LayerFaceInterface _face7
+        LayerFaceInterface _face7,
+        LayerFaceInterface _face8
     ) {
         face0 = _face0;
         face1 = _face1;
@@ -35,6 +37,7 @@ contract GenerateFace {
         face5 = _face5;
         face6 = _face6;
         face7 = _face7;
+        face8 = _face8;
     }
 
     function generateFace(uint256 number) public view returns(string memory) {
@@ -69,6 +72,10 @@ contract GenerateFace {
 
         if(number == 8) {
             return face7.getFace();
+        }
+
+        if(number == 9) {
+            return face8.getFace();
         }
 
         revert("Wrong face generation");
