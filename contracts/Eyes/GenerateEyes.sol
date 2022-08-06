@@ -21,11 +21,11 @@ contract GenerateEyes {
     function generateEyes(uint256 number) public view returns(string memory) {
 
         if(number >= 1 && number <= 11) {
-            return eyesBatch1.getEyes();
+            return eyesBatch1.getEyes(number);
         } 
 
         if(number >= 12 && number <= 16) {
-            return eyesBatch2.getEyes();
+            return eyesBatch2.getEyes(number);
         }
 
         revert("Wrong eyes generation");
