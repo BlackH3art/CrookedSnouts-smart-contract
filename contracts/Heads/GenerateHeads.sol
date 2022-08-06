@@ -1,20 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../Interfaces/LayerHeadInterface.sol";
+import "../Interfaces/HeadsBatchInterface.sol";
 
 
 contract GenerateHead {
 
 
-    LayerHeadInterface immutable headBatch1;
-    LayerHeadInterface immutable headBatch2;
+    HeadsBatchInterface immutable headBatch1;
+    HeadsBatchInterface immutable headBatch2;
 
 
 
     constructor(
-        LayerHeadInterface _headBatch1,
-        LayerHeadInterface _headBatch2
+        HeadsBatchInterface _headBatch1,
+        HeadsBatchInterface _headBatch2
     ) {
         headBatch1 = _headBatch1;
         headBatch2 = _headBatch2;
@@ -23,11 +23,11 @@ contract GenerateHead {
     function generateHead(uint256 number) public view returns(string memory) {
 
         if(number >= 1 && number <= 11) {
-            return headBatch1.getHead();
+            return headBatch1.getHead(number);
         }
 
         if(number >= 12 && number <= 15) {
-            return headBatch2.getHead();
+            return headBatch2.getHead(number);
         }
 
 
