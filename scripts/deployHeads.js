@@ -19,6 +19,8 @@ const main = async () => {
   const Head10 = await hre.ethers.getContractFactory("Head10");
   const Head11 = await hre.ethers.getContractFactory("Head11");
   const Head12 = await hre.ethers.getContractFactory("Head12");
+  const Head13 = await hre.ethers.getContractFactory("Head13");
+  const Head14 = await hre.ethers.getContractFactory("Head14");
 
 
   console.log('------ Deploy contracts');
@@ -35,6 +37,8 @@ const main = async () => {
   const head10 = await Head10.deploy();
   const head11 = await Head11.deploy();
   const head12 = await Head12.deploy();
+  const head13 = await Head13.deploy();
+  const head14 = await Head14.deploy();
   
   
   console.log('------ Contracts deployed');
@@ -51,6 +55,8 @@ const main = async () => {
   await head10.deployed();
   await head11.deployed();
   await head12.deployed();
+  await head13.deployed();
+  await head14.deployed();
 
 
   const file = await readFile('data/data.json');
@@ -71,6 +77,8 @@ const main = async () => {
     head10: head10.address,
     head11: head11.address,
     head12: head12.address,
+    head12: head13.address,
+    head12: head14.address,
   };
 
   data.heads = heads;

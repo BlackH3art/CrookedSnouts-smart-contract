@@ -14,6 +14,8 @@ const main = async () => {
   const Face5 = await hre.ethers.getContractFactory("Face5");
   const Face6 = await hre.ethers.getContractFactory("Face6");
   const Face7 = await hre.ethers.getContractFactory("Face7");
+  const Face8 = await hre.ethers.getContractFactory("Face8");
+  const Face9 = await hre.ethers.getContractFactory("Face9");
 
 
   console.log('------ Deploy contracts');
@@ -25,6 +27,8 @@ const main = async () => {
   const face5 = await Face5.deploy();
   const face6 = await Face6.deploy();
   const face7 = await Face7.deploy();
+  const face8 = await Face8.deploy();
+  const face9 = await Face9.deploy();
 
 
   console.log('------ Contracts deployed');
@@ -36,6 +40,8 @@ const main = async () => {
   await face5.deployed();
   await face6.deployed();
   await face7.deployed();
+  await face8.deployed();
+  await face9.deployed();
 
 
   const file = await readFile('data/data.json');
@@ -51,6 +57,8 @@ const main = async () => {
     face5: face5.address,
     face6: face6.address,
     face7: face7.address,
+    face8: face8.address,
+    face9: face9.address,
   };
 
   data.faces = faces;

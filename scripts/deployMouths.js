@@ -18,6 +18,8 @@ const main = async () => {
   const Mouth9 = await hre.ethers.getContractFactory("Mouth9");
   const Mouth10 = await hre.ethers.getContractFactory("Mouth10");
   const Mouth11 = await hre.ethers.getContractFactory("Mouth11");
+  const Mouth12 = await hre.ethers.getContractFactory("Mouth12");
+  const Mouth13 = await hre.ethers.getContractFactory("Mouth13");
 
 
   console.log('------ Deploy contracts');
@@ -33,6 +35,8 @@ const main = async () => {
   const mouth9 = await Mouth9.deploy();
   const mouth10 = await Mouth10.deploy();
   const mouth11 = await Mouth11.deploy();
+  const mouth12 = await Mouth12.deploy();
+  const mouth13 = await Mouth13.deploy();
   
   
   console.log('------ Contracts deployed');
@@ -48,6 +52,8 @@ const main = async () => {
   await mouth9.deployed();
   await mouth10.deployed();
   await mouth11.deployed();
+  await mouth12.deployed();
+  await mouth13.deployed();
 
 
   const file = await readFile('data/data.json');
@@ -67,6 +73,8 @@ const main = async () => {
     mouth9: mouth9.address,
     mouth10: mouth10.address,
     mouth11: mouth11.address,
+    mouth12: mouth12.address,
+    mouth13: mouth13.address,
   };
 
   data.mouths = mouths;

@@ -18,6 +18,10 @@ const main = async () => {
   const Eyes9 = await hre.ethers.getContractFactory("Eyes9");
   const Eyes10 = await hre.ethers.getContractFactory("Eyes10");
   const Eyes11 = await hre.ethers.getContractFactory("Eyes11");
+  const Eyes12 = await hre.ethers.getContractFactory("Eyes12");
+  const Eyes13 = await hre.ethers.getContractFactory("Eyes13");
+  const Eyes14 = await hre.ethers.getContractFactory("Eyes14");
+  const Eyes15 = await hre.ethers.getContractFactory("Eyes15");
 
 
   console.log('------ Deploy contracts');
@@ -33,6 +37,10 @@ const main = async () => {
   const eyes9 = await Eyes9.deploy();
   const eyes10 = await Eyes10.deploy();
   const eyes11 = await Eyes11.deploy();
+  const eyes12 = await Eyes12.deploy();
+  const eyes13 = await Eyes13.deploy();
+  const eyes14 = await Eyes14.deploy();
+  const eyes15 = await Eyes15.deploy();
   
   
   console.log('------ Contracts deployed');
@@ -48,6 +56,10 @@ const main = async () => {
   await eyes9.deployed();
   await eyes10.deployed();
   await eyes11.deployed();
+  await eyes12.deployed();
+  await eyes13.deployed();
+  await eyes14.deployed();
+  await eyes15.deployed();
 
 
   const file = await readFile('data/data.json');
@@ -67,6 +79,10 @@ const main = async () => {
     eyes9: eyes9.address,
     eyes10: eyes10.address,
     eyes11: eyes11.address,
+    eyes11: eyes12.address,
+    eyes11: eyes13.address,
+    eyes11: eyes14.address,
+    eyes11: eyes15.address,
   };
 
   data.eyes = eyes;
