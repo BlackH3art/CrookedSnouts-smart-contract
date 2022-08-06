@@ -1,18 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../Interfaces/EyesBatch.sol";
+import "../Interfaces/EyesBatchInterface.sol";
 
 
 contract GenerateEyes {
 
 
-    EyesBatch immutable eyesBatch1; 
-    EyesBatch immutable eyesBatch2;
+    EyesBatchInterface immutable eyesBatch1; 
+    EyesBatchInterface immutable eyesBatch2;
 
     constructor(
-        EyesBatch _eyesBatch1,
-        EyesBatch _eyesBatch2
+        EyesBatchInterface _eyesBatch1,
+        EyesBatchInterface _eyesBatch2
     ) {
         eyesBatch1 = _eyesBatch1;
         eyesBatch2 = _eyesBatch2;
