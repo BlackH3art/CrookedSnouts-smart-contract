@@ -6,11 +6,8 @@ import "../Interfaces/HeadsBatchInterface.sol";
 
 contract GenerateHead {
 
-
     HeadsBatchInterface immutable headBatch1;
     HeadsBatchInterface immutable headBatch2;
-
-
 
     constructor(
         HeadsBatchInterface _headBatch1,
@@ -29,7 +26,6 @@ contract GenerateHead {
         if(number >= 12 && number <= 15) {
             return headBatch2.getHead(number);
         }
-
 
         revert("Wrong head generation");
     }

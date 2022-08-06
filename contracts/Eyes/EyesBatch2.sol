@@ -14,7 +14,6 @@ contract EyesBatch2 {
     LayerEyesInterface immutable eyes15;
 
 
-
     constructor(
         LayerEyesInterface _eyes11,
         LayerEyesInterface _eyes12,

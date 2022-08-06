@@ -6,7 +6,6 @@ import "../Interfaces/EyesBatchInterface.sol";
 
 contract GenerateEyes {
 
-
     EyesBatchInterface immutable eyesBatch1; 
     EyesBatchInterface immutable eyesBatch2;
 
