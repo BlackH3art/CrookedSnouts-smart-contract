@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract Head12 {
+contract Head14 {
 
     function getHead() public pure returns (string memory) {
         return string(
