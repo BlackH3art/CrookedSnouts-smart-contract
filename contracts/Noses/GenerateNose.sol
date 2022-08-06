@@ -13,6 +13,9 @@ contract GenerateNose {
     LayerNoseInterface immutable nose4;
     LayerNoseInterface immutable nose5;
     LayerNoseInterface immutable nose6;
+    LayerNoseInterface immutable nose7;
+    LayerNoseInterface immutable nose8;
+    LayerNoseInterface immutable nose9;
 
     constructor(
         LayerNoseInterface _nose0,
@@ -21,7 +24,10 @@ contract GenerateNose {
         LayerNoseInterface _nose3,
         LayerNoseInterface _nose4,
         LayerNoseInterface _nose5,
-        LayerNoseInterface _nose6
+        LayerNoseInterface _nose6,
+        LayerNoseInterface _nose7,
+        LayerNoseInterface _nose8,
+        LayerNoseInterface _nose9
     ) {
         nose0 = _nose0;
         nose1 = _nose1;
@@ -30,6 +36,9 @@ contract GenerateNose {
         nose4 = _nose4;
         nose5 = _nose5;
         nose6 = _nose6;
+        nose7 = _nose7;
+        nose8 = _nose8;
+        nose9 = _nose9;
     }
 
 
@@ -61,6 +70,18 @@ contract GenerateNose {
 
         if(number == 7) {
             return nose6.getNose();
+        }
+
+        if(number == 8) {
+            return nose7.getNose();
+        }
+
+        if(number == 9) {
+            return nose8.getNose();
+        }
+
+        if(number == 10) {
+            return nose9.getNose();
         }
 
         revert("Wrong nose generation");

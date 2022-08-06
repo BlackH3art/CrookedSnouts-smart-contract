@@ -13,6 +13,9 @@ const main = async () => {
   const Nose4 = await hre.ethers.getContractFactory("Nose4");
   const Nose5 = await hre.ethers.getContractFactory("Nose5");
   const Nose6 = await hre.ethers.getContractFactory("Nose6");
+  const Nose7 = await hre.ethers.getContractFactory("Nose7");
+  const Nose8 = await hre.ethers.getContractFactory("Nose8");
+  const Nose9 = await hre.ethers.getContractFactory("Nose9");
 
 
   console.log('------ Deploy contracts');
@@ -23,6 +26,9 @@ const main = async () => {
   const nose4 = await Nose4.deploy();
   const nose5 = await Nose5.deploy();
   const nose6 = await Nose6.deploy();
+  const nose7 = await Nose6.deploy();
+  const nose8 = await Nose6.deploy();
+  const nose9 = await Nose6.deploy();
 
 
   console.log('------ Contracts deployed');
@@ -33,6 +39,9 @@ const main = async () => {
   await nose4.deployed();
   await nose5.deployed();
   await nose6.deployed();
+  await nose7.deployed();
+  await nose8.deployed();
+  await nose9.deployed();
 
 
   const file = await readFile('data/data.json');
@@ -47,6 +56,9 @@ const main = async () => {
     nose4: nose4.address,
     nose5: nose5.address,
     nose6: nose6.address,
+    nose7: nose7.address,
+    nose8: nose8.address,
+    nose9: nose9.address,
   };
 
   data.noses = noses;
