@@ -15,13 +15,13 @@ const main = async () => {
   const file = await readFile('data/data.json');
   const data = JSON.parse(file);
 
-  const { backgrounds, eyes, faces, heads, mouths, noses } = data;
+  const { backgrounds, batchEyes, faces, batchHeads, batchMouths, noses } = data;
 
   const backgroundAddresses = Object.values(backgrounds);
-  const eyesAddresses = Object.values(eyes);
+  const eyesBatchAddresses = Object.values(batchEyes);
   const faceAddresses = Object.values(faces);
-  const headAddresses = Object.values(heads);
-  const mouthAddresses = Object.values(mouths);
+  const headBatchAddresses = Object.values(batchHeads);
+  const mouthBatchAddresses = Object.values(batchMouths);
   const noseAddresses = Object.values(noses);
 
 
@@ -32,7 +32,7 @@ const main = async () => {
 
   console.log("****** Deploy EYES ******");
   const generateEyes = await GenerateEyes.deploy(
-    ...eyesAddresses
+    ...eyesBatchAddresses
   );
 
   console.log("****** Deploy FACE ******");
@@ -42,12 +42,12 @@ const main = async () => {
 
   console.log("****** Deploy HEAD ******");
   const generateHead = await GenerateHead.deploy(
-    ...headAddresses
+    ...headBatchAddresses
   );
 
   console.log("****** Deploy MOUTH ******");
   const generateMouth = await GenerateMouth.deploy(
-    ...mouthAddresses
+    ...mouthBatchAddresses
   );
 
   console.log("****** Deploy NOSE ******");

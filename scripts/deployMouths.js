@@ -77,6 +77,39 @@ const main = async () => {
     mouth13: mouth13.address,
   };
 
+
+  console.log('------ Deploy batches');
+  const MouthsBatch1 = await hre.ethers.getContractFactory("MouthsBatch1");
+  const MouthsBatch2 = await hre.ethers.getContractFactory("MouthsBatch2");
+
+  const mouthsBatch1 = await MouthsBatch1.deploy(
+    mouth0.address,
+    mouth1.address,
+    mouth2.address,
+    mouth3.address,
+    mouth4.address,
+    mouth5.address,
+    mouth6.address,
+    mouth7.address,
+    mouth8.address,
+    mouth9.address,
+    mouth10.address
+  );
+  const mouthsBatch2 = await MouthsBatch2.deploy(
+    mouth11.address,
+    mouth12.address,
+    mouth13.address,
+  );
+
+  await mouthsBatch1.deployed();  
+  await mouthsBatch2.deployed();
+
+  const batchMouths = {
+    mouthsBatch1: mouthsBatch1.address,
+    mouthsBatch2: mouthsBatch2.address
+  }
+
+  data.batchMouths = batchMouths;
   data.mouths = mouths;
 
 

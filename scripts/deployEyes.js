@@ -85,6 +85,41 @@ const main = async () => {
     eyes11: eyes15.address,
   };
 
+
+  console.log('------ Deploy batches');
+  const EyesBatch1 = await hre.ethers.getContractFactory("EyesBatch1");
+  const EyesBatch2 = await hre.ethers.getContractFactory("EyesBatch2");
+
+  const eyesBatch1 = await EyesBatch1.deploy(
+    eyes0.address,
+    eyes1.address,
+    eyes2.address,
+    eyes3.address,
+    eyes4.address,
+    eyes5.address,
+    eyes6.address,
+    eyes7.address,
+    eyes8.address,
+    eyes9.address,
+    eyes10.address
+  );
+  const eyesBatch2 = await EyesBatch2.deploy(
+    eyes11.address,
+    eyes12.address,
+    eyes13.address,
+    eyes14.address,
+    eyes15.address
+  );
+
+  await eyesBatch1.deployed();
+  await eyesBatch2.deployed();
+
+  const batchEyes = {
+    eyesBatch1: eyesBatch1.address,
+    eyesBatch2: eyesBatch2.address
+  }
+
+  data.batchEyes = batchEyes;
   data.eyes = eyes;
 
 

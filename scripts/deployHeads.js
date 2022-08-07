@@ -81,6 +81,40 @@ const main = async () => {
     head12: head14.address,
   };
 
+
+  console.log('------ Deploy batches');
+  const HeadsBatch1 = await hre.ethers.getContractFactory("HeadsBatch1");
+  const HeadsBatch2 = await hre.ethers.getContractFactory("HeadsBatch2");
+
+  const headsBatch1 = await HeadsBatch1.deploy(
+    head0.address,
+    head1.address,
+    head2.address,
+    head3.address,
+    head4.address,
+    head5.address,
+    head6.address,
+    head7.address,
+    head8.address,
+    head9.address,
+    head10.address
+  );
+  const headsBatch2 = await HeadsBatch2.deploy(
+    head11.address,
+    head12.address,
+    head13.address,
+    head14.address
+  );
+
+  await headsBatch1.deployed();
+  await headsBatch2.deployed();
+
+  const batchHeads = {
+    headsBatch1: headsBatch1.address,
+    headsBatch2: headsBatch2.address
+  }
+
+  data.batchHeads = batchHeads;
   data.heads = heads;
 
 
