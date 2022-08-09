@@ -1,0 +1,65 @@
+1. First deploy layers:
+================================================================
+npx hardhat run scripts/"SCRIPT_NAME" --network mumbai
+================================================================
+
+- deployBackgrounds.js
+- deployFaces.js
+- deployEyes.js
+- deployHeads.js
+- deployMouths.js
+- deployNoses.js
+
+This will also deploy Batches of certain layers.
+
+
+
+2. Then deploy generators:
+================================================================
+npx hardhat run scripts/deployAllGenerators.js --network mumbai
+================================================================
+
+This will deploy all Generate[layer].sol contracts with its belonging layer addresses.
+
+Deployed contracts:
+- GenerateBackground.sol
+- GenerateEyes.sol
+- GenerateFace.sol
+- GenerateHead.sol
+- GenerateMouth.sol
+- GenerateNose.sol
+
+
+
+3. Then deploy attributes contract and verify it so user can easily see layers and attributes sequence.
+================================================================
+npx hardhat run scripts/deployNFTsAttributes.js --network mumbai
+================================================================
+
+Attributes contract deploy.
+Copy its address and run:
+
+================================================================
+npx hardhat verify --network mumbai [PASTE ADDRESS HERE]
+================================================================
+
+Contract verified.
+
+
+
+4. Now that all of the contracts are deployed, we can deploy main contract which is NFT collection. 
+================================================================
+npx hardhat run scripts/deployCrookedSnouts.js --network mumbai
+================================================================
+
+CrookedSnouts.sol takes all of the Generators addresses as constructor arguments + Attributes address.
+Copy address of deployed CrookedSnouts.sol contract.
+
+To verify this contract, we need to provide the same arguments as we did to deployed contract, so we need more arguments in our verify command:
+
+================================================================================================================================
+npx hardhat verify --constructor-args scripts/deployCrookedSnoutsArguments.js --network mumbai [PASTE ADDRESS HERE]
+================================================================================================================================
+
+
+

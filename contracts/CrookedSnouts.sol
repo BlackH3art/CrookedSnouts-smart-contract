@@ -13,6 +13,7 @@ import "./Interfaces/GenerateFaceInterface.sol";
 import "./Interfaces/GenerateHeadInterface.sol";
 import "./Interfaces/GenerateMouthInterface.sol";
 import "./Interfaces/GenerateNoseInterface.sol";
+import "./Interfaces/NFTsAttributesInterface.sol";
 
 import "./CrookedSnoutsWhitelist.sol";
 
@@ -34,14 +35,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     uint256 nose;
   }
 
-  struct chosenLayers {
-    string bg;
-    string face;
-    string eyes;
-    string head;
-    string mouth;
-    string nose;
-  }
+
 
   address public owner;
   uint128 public counter;
@@ -53,14 +47,6 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
   uint16 constant requestConfirmations = 3;
   uint16 constant randomNumbersAmount =  6;
   uint256 public requestId;
-
-
-  string[7] backgrounds = ["purple", "red", "blue", "orange" , "gray", "dark", "aqua"]; // 7
-  string[10] faces = ["zombie", "face1", "face2", "face3", "face4", "face5", "alien", "gold", "silver", "ice"]; // 10
-  string[16] eyes = ["sunglasses", "angry", "silly", "helpless", "dead", "empty", "pirate", "shocked", "lady", "cyclop", "eyeballs", "love", "hypno", "focus", "ke", "look up"]; // 16
-  string[15] heads = ["bald", "king", "semibald", "hairy", "punk", "unicorn", "curly", "blond", "grass", "double tails", "horns", "rufous", "angel", "brain", "knife"]; // 15
-  string[14] mouths = ["tongue", "nope", "surprised", "goofy", "scream", "golden tooth", "squeezy", "rotten", "pacman", "sewn up", "mouth ball", "kiss", "vampire", "joint"]; // 12
-  string[10] noses = ["snot", "pointy", "piggy", "lack", "greek", "worm", "ring", "clown", "stick", "ice cream"]; // 10
 
 
   mapping(address => uint256) public addressToRequestId;
@@ -78,6 +64,8 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
   GenerateMouthInterface generateMouth;
   GenerateNoseInterface generateNose;
 
+  NFTsAttributesInterface NFTsAttributes;
+
   CrookedSnoutsWhitelist whitelist;
 
 
@@ -89,7 +77,8 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     GenerateEyesInterface _generateEyes,
     GenerateHeadInterface _generateHead,
     GenerateMouthInterface _generateMouth,
-    GenerateNoseInterface _generateNose
+    GenerateNoseInterface _generateNose,
+    NFTsAttributesInterface _NFTsAttributes
   ) ERC721("Crooked Snouts", "CS") VRFConsumerBaseV2(vrfCoordinator) {
 
     COORDINATOR = VRFCoordinatorV2Interface(vrfCoordinator);
@@ -101,6 +90,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     generateHead = _generateHead;
     generateMouth = _generateMouth;
     generateNose = _generateNose;
+    NFTsAttributes = _NFTsAttributes;
 
     // Prod polygon whitelist address
     // whitelist = CrookedSnoutsWhitelist(0xE2047175C0F685f813938Cc8Fdc027259F0C87de);
@@ -154,14 +144,14 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     });
 
     randomNumbers memory userNumbers = requestIdToRandomNumbers[_requestId];
-    string memory choosenCombination = string(abi.encodePacked(
-      backgrounds[userNumbers.bg - 1], ", ",
-      faces[userNumbers.face - 1], ", ",
-      eyes[userNumbers.eyes - 1], ", ",
-      heads[userNumbers.head - 1], ", ",
-      mouths[userNumbers.mouth - 1], ", ",
-      noses[userNumbers.nose - 1]
-    ));
+    string memory choosenCombination = NFTsAttributes.layersToString(
+      userNumbers.bg, 
+      userNumbers.face, 
+      userNumbers.eyes, 
+      userNumbers.head, 
+      userNumbers.mouth, 
+      userNumbers.nose
+    );
 
     if(isAlreadyTaken[choosenCombination]) {
       // return funds to user
@@ -180,36 +170,30 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
   function create() public alreadyMinted firstRequestNumbers {
 
     randomNumbers memory usersRandomNumbers = requestIdToRandomNumbers[addressToRequestId[msg.sender]];
-    chosenLayers memory layers;
+    Structs.chosenLayers memory attributes;
 
     uint128 usersTokenId = requestIdToTokenId[addressToRequestId[msg.sender]];
-    uint256 bg = usersRandomNumbers.bg;
-    uint256 face = usersRandomNumbers.face;
-    uint256 eye = usersRandomNumbers.eyes;
-    uint256 head = usersRandomNumbers.head;
-    uint256 mouth = usersRandomNumbers.mouth;
-    uint256 nose = usersRandomNumbers.nose;
 
-    layers = chosenLayers({
-      bg: backgrounds[bg - 1],
-      face: faces[face - 1], 
-      eyes: eyes[eye - 1],
-      head: heads[head - 1],
-      mouth: mouths[mouth - 1],
-      nose: noses[nose - 1]
-    });
+    attributes = NFTsAttributes.getChosenLayers(
+      usersRandomNumbers.bg, 
+      usersRandomNumbers.face, 
+      usersRandomNumbers.eyes, 
+      usersRandomNumbers.head, 
+      usersRandomNumbers.mouth, 
+      usersRandomNumbers.nose
+    );
 
 
     string memory name = string(abi.encodePacked("Crooked Snout #", Strings.toString(usersTokenId)));
     string memory svg = string(
       abi.encodePacked(
         '<svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">',
-        generateBackground.generateBackground(bg),
-        generateFace.generateFace(face),
-        generateEyes.generateEyes(eye),
-        generateMouth.generateMouth(mouth),
-        generateHead.generateHead(head),
-        generateNose.generateNose(nose),
+        generateBackground.generateBackground(usersRandomNumbers.bg),
+        generateFace.generateFace(usersRandomNumbers.face),
+        generateEyes.generateEyes(usersRandomNumbers.eyes),
+        generateMouth.generateMouth(usersRandomNumbers.mouth),
+        generateHead.generateHead(usersRandomNumbers.head),
+        generateNose.generateNose(usersRandomNumbers.nose),
         '</svg>'
       )
     );
@@ -222,7 +206,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     
     // set image and token URI and set it to users token
     string memory imageURI = svgToImageURI(svg);
-    string memory tokenURI = formatTokenURI(imageURI, name, layers);
+    string memory tokenURI = formatTokenURI(imageURI, name, attributes);
 
     _setTokenURI(usersTokenId, tokenURI);
   }
@@ -255,7 +239,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
   }
 
 
-  function formatTokenURI(string memory imageURI, string memory name, chosenLayers memory layers) internal pure returns(string memory tokenURI) {
+  function formatTokenURI(string memory imageURI, string memory name, Structs.chosenLayers memory attributes) internal pure returns(string memory tokenURI) {
 
     string memory baseURL = "data:application/json;base64,";
 
@@ -267,12 +251,12 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
             '"name": "', name, '",',
             '"description": "We are 10.000 decentralised Crooked Snouts living on the Polygon chain! #ForTheRekt",',
             '"attributes": [',
-              '{ "trait_type": "Background", "value": "', layers.bg, '" },',
-              '{ "trait_type": "Face", "value": "', layers.face, '" },',
-              '{ "trait_type": "Eyes", "value": "', layers.eyes, '" },',
-              '{ "trait_type": "Head", "value": "', layers.head, '" },',
-              '{ "trait_type": "Mouth", "value": "', layers.mouth, '" },',
-              '{ "trait_type": "Nose", "value": "', layers.nose, '" }',
+              '{ "trait_type": "Background", "value": "', attributes.bg, '" },',
+              '{ "trait_type": "Face", "value": "', attributes.face, '" },',
+              '{ "trait_type": "Eyes", "value": "', attributes.eyes, '" },',
+              '{ "trait_type": "Head", "value": "', attributes.head, '" },',
+              '{ "trait_type": "Mouth", "value": "', attributes.mouth, '" },',
+              '{ "trait_type": "Nose", "value": "', attributes.nose, '" }',
             '],',
             '"image": "', imageURI,'"',
           '}'

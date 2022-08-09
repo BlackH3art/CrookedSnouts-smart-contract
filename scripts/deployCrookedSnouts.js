@@ -13,7 +13,7 @@ const main = async () => {
 
 
 
-  const { generateLayers } = data;
+  const { generateLayers, attributes } = data;
 
   const generatorsAddresses = Object.values(generateLayers);
 
@@ -22,7 +22,8 @@ const main = async () => {
 
   const crookedSnouts = await CrookedSnouts.deploy(
     180, // subscription id
-    ...generatorsAddresses
+    ...generatorsAddresses,
+    attributes.nftsAttributes
   );
 
   await crookedSnouts.deployed();
