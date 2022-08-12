@@ -70,6 +70,11 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
 
 
 
+  event RequestedNumbers(uint256 requestId, address sender, uint128 indexed tokenId);
+  event RequestFulfilled(uint256 requestId);
+
+
+
   constructor(
     uint64 _subscriptionId,
     GenerateBackgroundInterface _generateBackground,
@@ -124,6 +129,8 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
       randomNumbersAmount
     );
 
+    emit RequestedNumbers(requestId, msg.sender, tokenId);
+
     requestIdToAddress[requestId] = msg.sender;
     addressToRequestId[msg.sender] = requestId;
     requestIdToTokenId[requestId] = tokenId;
@@ -133,6 +140,8 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
 
   // function that is called after Chainlink retrive our numbers
   function fulfillRandomWords(uint256 _requestId, uint256[] memory _randomNumbers) internal override {
+
+    emit RequestFulfilled(_requestId);
 
     requestIdToRandomNumbers[_requestId] = randomNumbers({
       bg: (_randomNumbers[0] % 7) + 1,
