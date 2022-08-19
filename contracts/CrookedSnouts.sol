@@ -146,7 +146,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
 
     requestIdToRandomNumbers[_requestId] = randomNumbers({
       bg: (_randomNumbers[0] % 7) + 1,
-      face: (_randomNumbers[1] % 10) + 1,
+      face: (_randomNumbers[1] % 100) + 1,
       eyes: (_randomNumbers[2] % 16) + 1,
       head: (_randomNumbers[3] % 15) + 1,
       mouth: (_randomNumbers[4] % 14) + 1,

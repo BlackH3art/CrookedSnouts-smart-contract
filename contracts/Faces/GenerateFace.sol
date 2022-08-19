@@ -45,43 +45,43 @@ contract GenerateFace {
 
     function generateFace(uint256 number) public view returns(string memory) {
 
-        if(number == 1) {
+        if(number >= 1 && number <= 13) {
             return face0.getFace();
         }
 
-        if(number == 2) {
+        if(number >= 14 && number <= 26) {
             return face1.getFace();
         }
 
-        if(number == 3) {
+        if(number >= 27 && number <= 39) {
             return face2.getFace();
         }
 
-        if(number == 4) {
+        if(number >= 40 && number <= 52) {
             return face3.getFace();
         }
 
-        if(number == 5) {
+        if(number >= 53 && number <= 65) {
             return face4.getFace();
         }
 
-        if(number == 6) {
+        if(number >= 66 && number <= 78) {
             return face5.getFace();
         }
 
-        if(number == 7) {
+        if(number >= 79 && number <= 91) {
             return face6.getFace();
         }
 
-        if(number == 8) {
+        if(number == 92) {
             return face7.getFace();
         }
 
-        if(number == 9) {
+        if(number == 93 || number == 94) {
             return face8.getFace();
         }
 
-        if(number == 10) {
+        if(number >= 95 && number <= 100) {
             return face9.getFace();
         }
 
