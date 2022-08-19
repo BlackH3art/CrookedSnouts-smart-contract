@@ -26,9 +26,9 @@ const main = async () => {
   const nose4 = await Nose4.deploy();
   const nose5 = await Nose5.deploy();
   const nose6 = await Nose6.deploy();
-  const nose7 = await Nose6.deploy();
-  const nose8 = await Nose6.deploy();
-  const nose9 = await Nose6.deploy();
+  const nose7 = await Nose7.deploy();
+  const nose8 = await Nose8.deploy();
+  const nose9 = await Nose9.deploy();
 
 
   console.log('------ Contracts deployed');

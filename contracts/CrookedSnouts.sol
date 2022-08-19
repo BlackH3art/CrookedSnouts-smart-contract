@@ -72,6 +72,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
 
   event RequestedNumbers(uint256 requestId, address sender, uint128 indexed tokenId);
   event RequestFulfilled(uint256 requestId);
+  event Created(string imageURI);
 
 
 
@@ -218,6 +219,8 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     string memory tokenURI = formatTokenURI(imageURI, name, attributes);
 
     _setTokenURI(usersTokenId, tokenURI);
+
+    emit Created(imageURI);
   }
 
 
@@ -229,6 +232,11 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
 
   function adminWithdraw(address payable withdrawTo) public onlyOwner {
     withdrawTo.transfer(address(this).balance);
+  }
+
+  function adminRefundUser(address payable user) public onlyOwner {
+    addressToRequestId[user] = 0;
+    withdrawToUser(user);
   }
 
 
