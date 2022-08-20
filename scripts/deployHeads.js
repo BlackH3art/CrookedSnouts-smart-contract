@@ -77,8 +77,8 @@ const main = async () => {
     head10: head10.address,
     head11: head11.address,
     head12: head12.address,
-    head12: head13.address,
-    head12: head14.address,
+    head13: head13.address,
+    head14: head14.address,
   };
 
 

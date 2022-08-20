@@ -21,7 +21,7 @@ const main = async () => {
   console.log(generatorsAddresses);
 
   const crookedSnouts = await CrookedSnouts.deploy(
-    180, // subscription id
+    242, // subscription id
     ...generatorsAddresses,
     attributes.nftsAttributes
   );

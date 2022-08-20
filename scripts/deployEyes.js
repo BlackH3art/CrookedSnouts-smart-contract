@@ -79,10 +79,10 @@ const main = async () => {
     eyes9: eyes9.address,
     eyes10: eyes10.address,
     eyes11: eyes11.address,
-    eyes11: eyes12.address,
-    eyes11: eyes13.address,
-    eyes11: eyes14.address,
-    eyes11: eyes15.address,
+    eyes12: eyes12.address,
+    eyes13: eyes13.address,
+    eyes14: eyes14.address,
+    eyes15: eyes15.address,
   };
 
 
