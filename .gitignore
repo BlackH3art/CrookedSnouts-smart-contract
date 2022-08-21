@@ -10,4 +10,4 @@ artifacts
 deploy
 abi.js
 contracts.txt
-data
+data/data testnet.json
