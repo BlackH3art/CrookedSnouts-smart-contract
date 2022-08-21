@@ -11,7 +11,7 @@ Whitelist contract address:\
 https://polygonscan.com/address/0xE2047175C0F685f813938Cc8Fdc027259F0C87de
 
 Frontend repo:\
-[https://github.com/BlackH3art/CrookedSnouts-smart-contract](https://github.com/BlackH3art/CrookedSnouts-frontend)
+[https://github.com/BlackH3art/CrookedSnouts-frontend](https://github.com/BlackH3art/CrookedSnouts-frontend)
 
 Backend API repo:\
 https://github.com/BlackH3art/CrookedSnouts-backend-api
