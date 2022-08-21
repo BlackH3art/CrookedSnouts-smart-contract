@@ -23,8 +23,12 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
   VRFCoordinatorV2Interface COORDINATOR;
 
   // polygon mumbai
-  address constant vrfCoordinator = 0x7a1BaC17Ccc5b313516C5E16fb24f7659aA5ebed;
-  bytes32 constant keyHash = 0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f;
+  // address constant vrfCoordinator = 0x7a1BaC17Ccc5b313516C5E16fb24f7659aA5ebed;
+  // bytes32 constant keyHash = 0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f;
+
+  // polygon mainnet
+  address constant vrfCoordinator = 0xAE975071Be8F8eE67addBC1A82488F1C24858067;
+  bytes32 constant keyHash = 0xd729dc84e21ae57ffb6be0053bf2b0668aa2aaf300a2a7b2ddf7dc0bb6e875a8;
 
   struct randomNumbers {
     uint256 bg;
@@ -98,11 +102,7 @@ contract CrookedSnouts is VRFConsumerBaseV2, ERC721URIStorage {
     generateNose = _generateNose;
     NFTsAttributes = _NFTsAttributes;
 
-    // Prod polygon whitelist address
-    // whitelist = CrookedSnoutsWhitelist(0xE2047175C0F685f813938Cc8Fdc027259F0C87de);
-
-    // Dev mumbai whitelist address
-    whitelist = CrookedSnoutsWhitelist(0xcFdfd49A423D748680020a5406E26f3DceFd5B2B);
+    whitelist = CrookedSnoutsWhitelist(0xE2047175C0F685f813938Cc8Fdc027259F0C87de);
 
     owner = msg.sender;
     counter = 1;
